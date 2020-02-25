@@ -1,3 +1,4 @@
+import 'package:hasura_connect/hasura_connect.dart';
 import 'package:shopping_cart/app/app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,11 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
+        Bind<HasuraConnect>(
+          (i) => HasuraConnect(
+            "https://shopping-list-cart.herokuapp.com/v1/graphql",
+          ),
+        ),
       ];
 
   @override
